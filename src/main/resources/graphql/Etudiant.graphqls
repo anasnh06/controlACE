@@ -1,0 +1,33 @@
+# Définition du type ChercheurDTO : Le type de retour des requêtes et mutations
+type EtudiantDTO {
+    id: ID
+    nom: String
+    email: String
+    dateNaissance: String
+}
+
+# Définition du type d'entrée pour les mutations (ajouter ou mettre à jour un chercheur)
+input EtudiantInput {
+
+    nom: String
+    email: String
+    dateNaissance: String
+}
+
+# Définition des requêtes pour récupérer des chercheurs
+
+type Query {
+
+    # Requête pour obtenir des chercheurs par spécialité
+    getEtudiantByDate(dateNaissance: String): [EtudiantDTO]
+
+
+}
+
+# Définition des mutations pour ajouter, mettre à jour et supprimer des chercheurs
+type Mutation {
+    # Mutation pour ajouter un chercheur
+    saveChercheur(etudiant: EtudiantInput): EtudiantDTO
+
+
+}
